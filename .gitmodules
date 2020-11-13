@@ -1,0 +1,6 @@
+[submodule "baseline-db"]
+	path = baseline-db
+	url = https://github.com/sambacha/baseline-db
+[submodule "truenft"]
+	path = truenft
+	url = https://github.com/freight-trust/truenft
