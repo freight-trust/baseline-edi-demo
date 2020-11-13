@@ -1,0 +1,4 @@
+apiVersion: hyperledger.org/v1alpha1
+kind: Grafana
+metadata:
+  name: besu-grafana

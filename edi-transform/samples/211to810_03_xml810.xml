@@ -1,0 +1,114 @@
+<l:INTERCHANGE xmlns:l="urn:xlate.io:staedi:names:loops"
+               xmlns:s="urn:xlate.io:staedi:names:segments"
+               xmlns:c="urn:xlate.io:staedi:names:composites"
+               xmlns:e="urn:xlate.io:staedi:names:elements">
+   <s:ISA>
+      <e:ISA01/>
+      <e:ISA02/>
+      <e:ISA03/>
+      <e:ISA04/>
+      <e:ISA05>ZZ</e:ISA05>
+      <e:ISA06>ABCDEFGHIJKLMNO</e:ISA06>
+      <e:ISA07>ZZ</e:ISA07>
+      <e:ISA08>123456789012345</e:ISA08>
+   </s:ISA>
+   <l:GROUP>
+      <s:GS>
+         <e:GS01>IN</e:GS01>
+         <e:GS02>99999999999</e:GS02>
+         <e:GS03>888888888888</e:GS03>
+      </s:GS>
+      <l:TRANSACTION>
+         <s:ST>
+            <e:ST01>810</e:ST01>
+         </s:ST>
+         <s:BIG>
+            <e:BIG01>20200914</e:BIG01>
+            <e:BIG02>0</e:BIG02>
+            <e:BIG03>20200914</e:BIG03>
+            <e:BIG04/>
+            <e:BIG07>FB</e:BIG07>
+            <e:BIG08>00</e:BIG08>
+         </s:BIG>
+         <s:REF>
+            <e:REF01>BM</e:REF01>
+            <e:REF02>12345</e:REF02>
+         </s:REF>
+         <l:L0001>
+            <s:N1>
+               <e:N101>RI</e:N101>
+               <e:N102>SHIPPER NAME</e:N102>
+               <e:N103>93</e:N103>
+               <e:N104>123456789</e:N104>
+            </s:N1>
+            <s:N3>
+               <e:N301>9999 SHIPPER STREET</e:N301>
+               <e:N302>ADDITIONAL ADDRESS LINE</e:N302>
+            </s:N3>
+            <s:N4>
+               <e:N401>SHIPPER CITY</e:N401>
+               <e:N402>ST</e:N402>
+               <e:N403>00000</e:N403>
+               <e:N404/>
+            </s:N4>
+         </l:L0001>
+         <l:L0001>
+            <s:N1>
+               <e:N101>BT</e:N101>
+               <e:N102>CONSIGNEE NAME</e:N102>
+               <e:N103/>
+               <e:N104/>
+            </s:N1>
+            <s:N3>
+               <e:N301>9999 CONSIGNEE STREET</e:N301>
+               <e:N302>ADDITIONAL ADDRESS LINE</e:N302>
+            </s:N3>
+            <s:N4>
+               <e:N401>CONSIGNEE CITY</e:N401>
+               <e:N402>ST</e:N402>
+               <e:N403>99999</e:N403>
+               <e:N404/>
+            </s:N4>
+         </l:L0001>
+         <l:L0006>
+            <s:IT1>
+               <e:IT101>1</e:IT101>
+               <e:IT102>2</e:IT102>
+               <e:IT103>CT</e:IT103>
+               <e:IT104>0</e:IT104>
+            </s:IT1>
+            <s:PID>
+               <e:PID01>F</e:PID01>
+               <e:PID05>COMMODITY 1</e:PID05>
+            </s:PID>
+         </l:L0006>
+         <l:L0006>
+            <s:IT1>
+               <e:IT101>2</e:IT101>
+               <e:IT102>3</e:IT102>
+               <e:IT103>CT</e:IT103>
+               <e:IT104>0</e:IT104>
+            </s:IT1>
+            <s:PID>
+               <e:PID01>F</e:PID01>
+               <e:PID05>COMMODITY 1</e:PID05>
+            </s:PID>
+         </l:L0006>
+         <s:TDS>
+            <e:TDS01>0</e:TDS01>
+         </s:TDS>
+         <s:CAD>
+            <e:CAD01>0</e:CAD01>
+         </s:CAD>
+         <s:CTT>
+            <e:CTT01>2</e:CTT01>
+            <e:CTT02>5</e:CTT02>
+            <e:CTT03/>
+            <e:CTT04/>
+         </s:CTT>
+         <s:SE/>
+      </l:TRANSACTION>
+      <s:GE/>
+   </l:GROUP>
+   <s:IEA/>
+</l:INTERCHANGE>
