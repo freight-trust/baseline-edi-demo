@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  web:
+    build: .
+    volumes:
+    - yarn_cache:/yarn
+    - node_modules_cache:/app/node_modules
+
+volumes:
+  yarn_cache:
+  node_modules_cache:
