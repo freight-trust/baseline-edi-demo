@@ -1,0 +1,292 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "AnchorAPI",
+    "description": "Anchoring API"
+  },
+  "host": "http://35.162.43.79/:3000",
+  "basePath": "/",
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/document": {
+      "post": {
+        "description": "Creates a new document",
+        "summary": "Create document",
+        "tags": ["Document"],
+        "operationId": "DocumentCreate",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Document"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/CreateDocument"
+          },
+          "400": {
+            "$ref": "#/responses/HashExistsError"
+          }
+        },
+        "security": []
+      }
+    },
+    "/document/{REFERENCE_ID}": {
+      "get": {
+        "description": "Get document by referenceId",
+        "summary": "Get document",
+        "tags": ["Document"],
+        "operationId": "DocumentGet",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "REFERENCE_ID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/Document"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/responses/ServerError"
+          }
+        },
+        "security": []
+      },
+      "put": {
+        "description": "Adds a new version of an existing document by providing previous referenceId",
+        "summary": "Update Document",
+        "tags": ["Document"],
+        "operationId": "DocumentUpdate",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Document"
+            }
+          },
+          {
+            "name": "REFERENCE_ID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/CreateDocument"
+          },
+          "400": {
+            "$ref": "#/responses/HashExistsError"
+          }
+        },
+        "security": []
+      }
+    },
+    "/document/getByReferenceId/{REFERENCE_ID}": {
+      "get": {
+        "description": "Search document by referenceId",
+        "summary": "Search document by referenceId",
+        "tags": ["Document"],
+        "operationId": "DocumentGetByReferenceId",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "REFERENCE_ID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/ReferenceIdArray"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/responses/ServerError"
+          }
+        },
+        "security": []
+      }
+    },
+    "/document/getbyHash/{HASH}": {
+      "get": {
+        "description": "Search document by hash",
+        "summary": "Search document by hash",
+        "tags": ["Document"],
+        "operationId": "DocumentGetbyHash",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "HASH",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/ReferenceIdArray"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/responses/ServerError"
+          }
+        },
+        "security": []
+      }
+    }
+  },
+  "responses": {
+    "Document": {
+      "description": "OK",
+      "schema": {
+        "$ref": "#/definitions/Document"
+      }
+    },
+    "CreateDocument": {
+      "description": "OK",
+      "schema": {
+        "$ref": "#/definitions/CreateDocumentResponse"
+      }
+    },
+    "ReferenceIdArray": {
+      "description": "OK",
+      "schema": {
+        "$ref": "#/definitions/ReferenceIdArray"
+      }
+    },
+    "HashExistsError": {
+      "description": "Bad Request.",
+      "schema": {
+        "$ref": "#/definitions/BadRequestError"
+      }
+    },
+    "NotFound": {
+      "description": "Not Found.",
+      "schema": {
+        "$ref": "#/definitions/NotFoundError"
+      }
+    },
+    "ServerError": {
+      "description": "Server error",
+      "schema": {
+        "$ref": "#/definitions/ServerError"
+      }
+    }
+  },
+  "definitions": {
+    "Document": {
+      "title": "Document",
+      "example": {
+        "hash": "f8b9dd1cc221ab1ed247d9b5a7178b11cdb64fd7",
+        "description": "This is first version of the document"
+      },
+      "type": "object",
+      "properties": {
+        "hash": {
+          "description": "",
+          "example": "f8b9dd1cc221ab1ed247d9b5a7178b11cdb64fd7",
+          "type": "string"
+        },
+        "description": {
+          "description": "",
+          "example": "This is first version of the document",
+          "type": "string"
+        }
+      },
+      "required": ["hash", "description"]
+    },
+    "CreateDocumentResponse": {
+      "type": "object",
+      "properties": {
+        "referenceId": {
+          "type": "string",
+          "description": "Reference ID for the document"
+        },
+        "documentId": {
+          "type": "string",
+          "description": "Document ID"
+        },
+        "versionId": {
+          "type": "string",
+          "description": "Version number of the document"
+        },
+        "transactionId": {
+          "type": "string",
+          "description": "Transaction ID for the document"
+        }
+      }
+    },
+    "ReferenceIdArray": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "Reference ID of a matching document"
+      }
+    },
+    "BadRequestError": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "description": "Hash already exists."
+        }
+      },
+      "required": ["message"]
+    },
+    "NotFoundError": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "description": "No document found."
+        }
+      },
+      "required": ["message"]
+    },
+    "ServerError": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "description": "Something went wrong in fetching records."
+        }
+      },
+      "required": ["message"]
+    }
+  }
+}
