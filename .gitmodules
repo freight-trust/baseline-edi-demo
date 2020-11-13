@@ -4,3 +4,6 @@
 [submodule "truenft"]
 	path = truenft
 	url = https://github.com/freight-trust/truenft
+[submodule "attestation-api"]
+	path = attestation-api
+	url = https://github.com/freight-trust/attestation-api
